@@ -1,34 +1,53 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+//USAR APENAS PARA VER TODOS OS ERROS POR PHP (TRUE/FALSE)
 
 /**
  * @file
- * Provides a payment method using Ifthen Software multibanco platform.
+ * Multibanco V2 GeraLucros _> FDAD@indiqocor.pt.
  */
-
-
+/////--..............................................--/////
+/////--..............................................--/////
+/////--..............................................--/////
+/////--..............................................--/////
+ //Definir aqui variáveis a usar:
+ //Para tradução:
+define('ABC_BASE', 'ABC_TRADUZIDO');
+/////--..............................................--/////
+/////--..............................................--/////
+/////--..............................................--/////
+/////--..............................................--/////
+ //Para definições:
+$MB='commerce_multibanco';
+$MB_TITULO='Multibanco';
+$MB_DESC='Pagamento Multibanco V2';
+$MB_ENT='commerce_multibanco_entidade';
+$MB_SUBENT='commerce_multibanco_subentidade';
+/////--..............................................--/////
+/////--..............................................--/////
+/////--..............................................--/////
+/////--..............................................--/////
 /**
- * Implements hook_commerce_payment_method_info().
+ * Implementa Opção.
  */
 function commerce_multibanco_commerce_payment_method_info() {
   $payment_methods = array();
-  $payment_methods['commerce_multibanco'] = array(
-    'title' => t('Multibanco'),
-    'description' => t('Ifthen Multibanco payment gateway integration.'),
+  $payment_methods[$MB] = array(
+    'title' => t($MB_TITULO),
+    'description' => t($MB_DESC),
   );
 
   return $payment_methods;
 }
 
 /**
-* Returns the default settings for the Ifthen Software payment method.
+* DEFINIÇÕES BASE PARA PAGAMENTO MULTIBANCO.
 */
 function commerce_multibanco_default_settings() {
   $default_currency = variable_get('commerce_default_currency', 'EUR');
-
-  return array(
-    'commerce_multibanco_entidade' => '',
-    'commerce_multibanco_subentidade' => '',
-  );
+  return array($MB_ENT => '', $MB_SUBENT => '',);
 }
 
 /**
@@ -252,4 +271,3 @@ function commerce_multibanco_transaction($payment_method, $order, $charge, $name
   
   drupal_write_record('commerce_multibanco', $data);
 }
-

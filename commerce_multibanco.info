@@ -1,5 +1,5 @@
-name = Commerce Multibanco (Ifthen Software)
-description = Provides a payment method using Ifthen Software Multibanco platform.
+name = Multibanco V2 [GL]
+description = Pagamento Multibanco [GL].
 package = Commerce - Payment
 dependencies[] = commerce
 dependencies[] = commerce_payment
@@ -8,9 +8,10 @@ core = 7.x
 ; Base module files
 files[] = commerce_multibanco.module
 
-; Information added by drupal.org packaging script on 2011-10-09
-version = "7.x-1.0-beta2"
+; Information added by drupal.org packaging script on 2015-05-28
+version = "7.x-1.0-beta1+2-dev"
 core = "7.x"
 project = "commerce_multibanco"
-datestamp = "1318168602"
+datestamp = "1380559968"
+
 

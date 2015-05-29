@@ -74,4 +74,3 @@ function commerce_multibanco_uninstall() {
   ->condition('name', 'commerce_multibanco_%%', 'LIKE')
   ->execute();
 }
-
